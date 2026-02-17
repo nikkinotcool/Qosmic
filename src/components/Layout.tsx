@@ -1,0 +1,33 @@
+import React, { type ReactNode } from 'react';
+import { LavaBackground } from './LavaBackground';
+import { Footer } from './Footer';
+
+interface LayoutProps {
+  children: ReactNode;
+}
+
+export const Layout: React.FC<LayoutProps> = ({ children }) => {
+  return (
+    // The main wrapper is z-0
+    <div className="relative w-full min-h-screen bg-white text-void selection:bg-void selection:text-surface cursor-none">
+      {/* Background Blobs - Now z-[1] inside this wrapper */}
+      <LavaBackground />
+
+      {/* Noise Overlay */}
+      <div className="noise-overlay" />
+
+      {/* Global Branding */}
+      <div className="fixed top-0 left-0 w-full p-8 flex justify-between items-start z-[100] pointer-events-none text-void">
+        <div className="text-xl font-bold tracking-[0.3em] uppercase">QOSMIC</div>
+        <div className="text-xs font-mono opacity-50 tracking-widest uppercase">EST. 2026 // HYD</div>
+      </div>
+
+      {/* Content Layer - Higher z-index than LavaBackground */}
+      <div className="relative z-10 w-full">
+        {children}
+      </div>
+
+      <Footer />
+    </div>
+  );
+};
