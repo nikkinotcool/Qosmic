@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useCursor } from '../context/CursorContext';
+import { Logo } from './Logo';
 
 const revealVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -50,7 +51,10 @@ export const Footer: React.FC = () => {
           >
             {/* LEFT SECTION */}
             <div className="space-y-6 text-center md:text-left">
-              <div className="text-3xl md:text-4xl font-black tracking-widest uppercase text-white">QOSMIC</div>
+              <Logo 
+                className="text-3xl md:text-4xl" 
+                spanClassName="font-black tracking-widest" 
+              />
               <div className="text-white/40 text-[10px] md:text-sm leading-relaxed font-medium uppercase tracking-tight">
                 Digital Gravity Agency<br />
                 Hyderabad, India

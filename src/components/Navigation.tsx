@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Magnetic } from './Magnetic';
 import { useCursor } from '../context/CursorContext';
+import { Logo } from './Logo';
 
 const navItems = [
   { path: '/', label: 'Home' },
@@ -37,7 +38,13 @@ export const Navigation: React.FC = () => {
 
   return (
     <>
-      {/* Desktop Navigation */}
+      {/* Global Branding - Desktop Only */}
+      <div className="fixed top-0 left-0 w-full p-8 hidden md:flex justify-between items-start z-[10000] pointer-events-none">
+        <Logo className="text-xl pointer-events-auto" />
+        <div className="text-xs font-mono text-void/40 tracking-widest uppercase">EST. 2026 // HYD</div>
+      </div>
+
+      {/* Desktop Navigation Pill */}
       <div className="fixed top-8 left-1/2 -translate-x-1/2 z-[1000] hidden md:flex justify-center w-full px-8 pointer-events-none">
         <motion.nav 
           initial={{ y: -100, opacity: 0 }}
@@ -75,16 +82,21 @@ export const Navigation: React.FC = () => {
       </div>
 
       {/* Mobile Header */}
-      <div className="fixed top-0 left-0 w-full z-[1000] md:hidden px-6 py-8 flex justify-between items-center mix-blend-difference pointer-events-none">
-        <NavLink to="/" className="text-white font-bold tracking-[0.2em] text-sm pointer-events-auto">
-          QOSMIC
-        </NavLink>
-        <button 
-          onClick={() => setIsMenuOpen(true)}
-          className="text-white pointer-events-auto p-2"
-        >
-          <Menu size={24} />
-        </button>
+      <div className="fixed top-0 left-0 w-full z-[10000] md:hidden px-6 py-8 flex justify-between items-center pointer-events-none">
+        <Logo 
+          className="text-sm pointer-events-auto" 
+        />
+        <div className="flex items-center gap-5 pointer-events-auto">
+          <span className="text-void/40 text-[9px] font-mono tracking-widest uppercase">
+            EST. 2026 // HYD
+          </span>
+          <button 
+            onClick={() => setIsMenuOpen(true)}
+            className="text-void p-2"
+          >
+            <Menu size={20} />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
@@ -97,9 +109,9 @@ export const Navigation: React.FC = () => {
             className="fixed inset-0 z-[1001] bg-white md:hidden"
           >
             <div className="absolute top-0 left-0 w-full px-6 py-8 flex justify-between items-center">
-              <span className="text-void font-bold tracking-[0.2em] text-sm">
-                QOSMIC
-              </span>
+              <Logo 
+                className="text-sm" 
+              />
               <button 
                 onClick={() => setIsMenuOpen(false)}
                 className="text-void p-2"

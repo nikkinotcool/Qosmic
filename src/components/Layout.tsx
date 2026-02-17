@@ -1,6 +1,7 @@
 import React, { type ReactNode } from 'react';
 import { LavaBackground } from './LavaBackground';
 import { Footer } from './Footer';
+import { Logo } from './Logo';
 
 interface LayoutProps {
   children: ReactNode;
@@ -15,12 +16,6 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       {/* Noise Overlay */}
       <div className="noise-overlay" />
-
-      {/* Global Branding */}
-      <div className="fixed top-0 left-0 w-full p-8 flex justify-between items-start z-[100] pointer-events-none text-void">
-        <div className="text-xl font-bold tracking-[0.3em] uppercase">QOSMIC</div>
-        <div className="text-xs font-mono opacity-50 tracking-widest uppercase">EST. 2026 // HYD</div>
-      </div>
 
       {/* Content Layer - Higher z-index than LavaBackground */}
       <div className="relative z-10 w-full">
