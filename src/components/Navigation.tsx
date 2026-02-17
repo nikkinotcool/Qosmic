@@ -90,12 +90,19 @@ export const Navigation: React.FC = () => {
           <span className="text-void/40 text-[9px] font-mono tracking-widest uppercase">
             EST. 2026 // HYD
           </span>
-          <button 
-            onClick={() => setIsMenuOpen(true)}
-            className="text-void p-2"
-          >
-            <Menu size={20} />
-          </button>
+          <AnimatePresence>
+            {!isMenuOpen && (
+              <motion.button 
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                onClick={() => setIsMenuOpen(true)}
+                className="text-void p-2"
+              >
+                <Menu size={20} />
+              </motion.button>
+            )}
+          </AnimatePresence>
         </div>
       </div>
 
@@ -103,18 +110,20 @@ export const Navigation: React.FC = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[1001] bg-white md:hidden"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 z-[10001] bg-white md:hidden"
           >
+            {/* Header inside overlay to maintain layout but use different buttons */}
             <div className="absolute top-0 left-0 w-full px-6 py-8 flex justify-between items-center">
-              <Logo 
-                className="text-sm" 
-              />
+              {/* Spacer where logo would be (since original logo is already visible at z-10000) */}
+              <div className="w-20" /> 
+              
               <button 
                 onClick={() => setIsMenuOpen(false)}
-                className="text-void p-2"
+                className="text-void p-2 pointer-events-auto"
+                aria-label="Close menu"
               >
                 <X size={24} />
               </button>
