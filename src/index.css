@@ -46,14 +46,18 @@
     @apply bg-white/40 backdrop-blur-xl border border-black/5 rounded-full shadow-[0_8px_32px_0_rgba(0,0,0,0.05)];
   }
 
+  .section-padding {
+    @apply py-20 md:py-32 px-6 md:px-12 lg:px-24;
+  }
+
   .heading-large {
-    @apply text-6xl md:text-8xl font-bold;
+    @apply text-5xl md:text-8xl font-bold;
     letter-spacing: -0.03em;
     line-height: 1;
   }
 
   .text-luxury {
-    @apply text-xs font-semibold tracking-[0.1em];
+    @apply text-[10px] md:text-xs font-semibold tracking-[0.1em];
   }
 }
 

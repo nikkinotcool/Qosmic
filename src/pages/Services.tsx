@@ -37,9 +37,9 @@ const serviceCards = [
 
 export const Services: React.FC = () => {
   return (
-    <div className="w-full min-h-screen pt-32 px-8 relative z-10 pb-32 font-sans text-void">
+    <div className="w-full min-h-screen pt-32 md:pt-40 px-6 md:px-8 relative z-10 pb-24 font-sans text-void">
       {/* SECTION 1: SERVICES HERO */}
-      <section className="max-w-[1400px] mx-auto mb-20 md:mb-32 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <section className="max-w-[1400px] mx-auto mb-16 md:mb-32 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Left: Text content */}
         <motion.div 
           variants={{
@@ -52,16 +52,16 @@ export const Services: React.FC = () => {
           }}
           initial="hidden"
           animate="visible"
-          className="space-y-8"
+          className="space-y-6 md:space-y-8 text-center md:text-left"
         >
           <div className="space-y-4">
             <motion.span variants={revealVariants} className="text-luxury block uppercase">Expertise</motion.span>
-            <h1 className="text-5xl md:text-[6vw] font-bold tracking-tighter leading-[1] uppercase">
+            <h1 className="text-4xl sm:text-5xl md:text-[6vw] font-bold tracking-tighter leading-[1] uppercase">
               Engineering <br />
               unfair advantage.
             </h1>
           </div>
-          <p className="text-xl md:text-2xl text-void/60 max-w-lg leading-relaxed font-medium">
+          <p className="text-lg md:text-2xl text-void/60 max-w-lg mx-auto md:mx-0 leading-relaxed font-medium">
             We design systems, content and digital infrastructure that pull attention and convert it into growth.
           </p>
         </motion.div>
@@ -81,7 +81,7 @@ export const Services: React.FC = () => {
           animate="visible"
           className="flex justify-center md:justify-end"
         >
-          <div className="relative p-12 md:p-20 bg-void/5 rounded-[3rem] group overflow-hidden">
+          <div className="relative p-8 md:p-20 bg-void/5 rounded-[2.5rem] md:rounded-[3rem] group overflow-hidden">
             <motion.div
               animate={{ 
                 rotate: 360
@@ -94,20 +94,19 @@ export const Services: React.FC = () => {
               className="relative z-10"
             >
               <div className="grid grid-cols-2 gap-4">
-                <Zap className="w-12 h-12 opacity-20" strokeWidth={1} />
-                <Layers className="w-12 h-12 opacity-20" strokeWidth={1} />
-                <Cpu className="w-12 h-12 opacity-20" strokeWidth={1} />
-                <ArrowUpRight className="w-12 h-12 opacity-20" strokeWidth={1} />
+                <Zap className="w-10 h-10 md:w-12 md:h-12 opacity-20" strokeWidth={1} />
+                <Layers className="w-10 h-10 md:w-12 md:h-12 opacity-20" strokeWidth={1} />
+                <Cpu className="w-10 h-10 md:w-12 md:h-12 opacity-20" strokeWidth={1} />
+                <ArrowUpRight className="w-10 h-10 md:w-12 md:h-12 opacity-20" strokeWidth={1} />
               </div>
             </motion.div>
-            {/* Subtle floating background elements */}
             <div className="absolute inset-0 bg-gradient-to-tr from-void/5 to-transparent animate-pulse" />
           </div>
         </motion.div>
       </section>
 
       {/* SECTION 2: SERVICES GRID */}
-      <section className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         {serviceCards.map((service, index) => (
           <motion.div
             key={service.title}
@@ -126,7 +125,7 @@ export const Services: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            className="group relative bg-white p-10 md:p-16 rounded-[2.5rem] card-premium"
+            className="group relative bg-white p-8 md:p-16 rounded-[2rem] md:rounded-[2.5rem] card-premium"
           >
             <div className="flex flex-col h-full gap-8 text-void">
               <div className="flex justify-between items-start">
@@ -138,22 +137,22 @@ export const Services: React.FC = () => {
                     {service.icon}
                   </motion.div>
                 </div>
-                <ArrowUpRight className="w-6 h-6 opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+                <ArrowUpRight className="w-6 h-6 opacity-0 md:group-hover:opacity-20 transition-opacity duration-500" />
               </div>
 
               <div className="space-y-4">
-                <h2 className="text-4xl font-bold tracking-tight uppercase">{service.title}</h2>
-                <p className="text-xl md:text-2xl opacity-60 max-w-md leading-relaxed">
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight uppercase">{service.title}</h2>
+                <p className="text-lg md:text-2xl opacity-60 max-w-md leading-relaxed">
                   {service.description}
                 </p>
               </div>
 
               <div className="pt-8 mt-auto border-t border-void/5">
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                   {service.items.map((item) => (
                     <li key={item} className="flex items-center gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-void/10 group-hover:bg-void transition-colors duration-500" />
-                      <span className="text-sm font-semibold tracking-tight text-void/70 uppercase link-premium">{item}</span>
+                      <span className="text-[10px] md:text-sm font-semibold tracking-tight text-void/70 uppercase link-premium">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -168,13 +167,13 @@ export const Services: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="bg-black text-white p-10 md:p-16 rounded-[2.5rem] flex flex-col justify-center items-center text-center gap-8 group card-premium"
+          className="bg-black text-white p-8 md:p-16 rounded-[2rem] md:rounded-[2.5rem] flex flex-col justify-center items-center text-center gap-8 group card-premium"
         >
-          <h3 className="text-3xl md:text-5xl font-bold tracking-tighter uppercase leading-tight">
+          <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tighter uppercase leading-tight">
             If it grows your revenue — <br />
-            <span className="opacity-20 hover:opacity-100 transition-opacity duration-1000 font-semibold italic">we build it.</span>
+            <span className="opacity-20 md:hover:opacity-100 transition-opacity duration-1000 font-semibold italic">we build it.</span>
           </h3>
-          <div className="h-px w-12 bg-white/20 group-hover:w-24 transition-all duration-500" />
+          <div className="h-px w-12 bg-white/20 md:group-hover:w-24 transition-all duration-500" />
         </motion.div>
       </section>
     </div>

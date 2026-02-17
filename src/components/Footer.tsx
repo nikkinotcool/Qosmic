@@ -23,10 +23,10 @@ export const Footer: React.FC = () => {
       {/* Strong Visual Divider / Background Shift */}
       <div className="w-full h-px bg-white/10" />
       
-      <footer className="relative w-full py-20 md:py-32 px-8 font-sans">
+      <footer className="relative w-full py-20 md:py-32 px-6 md:px-8 font-sans">
         {/* Subtle Background Decoration - No blur filter */}
         <motion.div 
-          className="absolute -bottom-20 -right-20 w-[40vw] h-[40vw] rounded-full pointer-events-none -z-10"
+          className="absolute -bottom-20 -right-20 w-[60vw] md:w-[40vw] h-[60vw] md:h-[40vw] rounded-full pointer-events-none -z-10"
           style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 70%)' }}
           animate={{
             x: [0, 30, 0],
@@ -46,19 +46,19 @@ export const Footer: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-20 items-start mb-24"
+            className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20 items-start mb-20 md:mb-24"
           >
             {/* LEFT SECTION */}
-            <div className="space-y-6">
-              <div className="text-4xl font-black tracking-widest uppercase text-white">QOSMIC</div>
-              <div className="text-white/40 text-sm leading-relaxed font-medium uppercase tracking-tight">
+            <div className="space-y-6 text-center md:text-left">
+              <div className="text-3xl md:text-4xl font-black tracking-widest uppercase text-white">QOSMIC</div>
+              <div className="text-white/40 text-[10px] md:text-sm leading-relaxed font-medium uppercase tracking-tight">
                 Digital Gravity Agency<br />
                 Hyderabad, India
               </div>
             </div>
 
             {/* CENTER SECTION (NAV) */}
-            <div className="flex flex-col gap-4 text-lg font-bold uppercase tracking-tight text-white/60">
+            <div className="flex flex-col items-center md:items-start gap-4 text-base md:text-lg font-bold uppercase tracking-tight text-white/60">
               {['Home', 'Work', 'Services', 'About', 'Contact'].map((item) => (
                 <Link 
                   key={item}
@@ -73,14 +73,14 @@ export const Footer: React.FC = () => {
             </div>
 
             {/* RIGHT SECTION */}
-            <div className="flex flex-col gap-12 items-start md:items-end md:text-right text-left">
+            <div className="flex flex-col gap-10 md:gap-12 items-center md:items-end md:text-right text-center">
               <div className="space-y-4">
                 <p className="text-white/30 uppercase tracking-[0.2em] text-[10px] font-black">CONNECT</p>
                 <a 
                   href="mailto:hello@qosmic.studio" 
                   onMouseEnter={() => setHoverState('button')}
                   onMouseLeave={() => setHoverState('default')}
-                  className="text-xl md:text-2xl font-medium text-white hover:text-white/50 transition-colors block link-premium after:bg-white"
+                  className="text-lg md:text-2xl font-medium text-white hover:text-white/50 transition-colors block link-premium after:bg-white"
                 >
                   hello@qosmic.studio
                 </a>
@@ -90,12 +90,12 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   onMouseEnter={() => setHoverState('button')}
                   onMouseLeave={() => setHoverState('default')}
-                  className="text-xl md:text-2xl font-medium text-white hover:text-white/50 transition-colors block link-premium after:bg-white"
+                  className="text-lg md:text-2xl font-medium text-white hover:text-white/50 transition-colors block link-premium after:bg-white"
                 >
                   @qosmic.studio
                 </a>
               </div>
-              <div className="text-white/20 font-mono text-xs uppercase tracking-[0.3em]">
+              <div className="text-white/20 font-mono text-[10px] md:text-xs uppercase tracking-[0.3em]">
                 EST. 2026 // HYD
               </div>
             </div>
@@ -107,12 +107,12 @@ export const Footer: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6"
+            className="pt-10 md:pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6"
           >
-            <div className="text-white/30 text-[10px] font-bold uppercase tracking-[0.2em]">
+            <div className="text-white/30 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em]">
               © 2026 QOSMIC. All rights reserved.
             </div>
-            <div className="text-white/20 text-[10px] font-bold uppercase tracking-[0.2em] italic">
+            <div className="text-white/20 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] italic">
               Built with intent. Not templates.
             </div>
           </motion.div>

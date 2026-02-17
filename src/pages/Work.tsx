@@ -53,8 +53,8 @@ export const Work: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   return (
-    <div className="w-full min-h-screen pt-32 px-8 relative z-10 pb-32 text-void">
-      <header className="max-w-[1400px] mx-auto mb-20 md:mb-32">
+    <div className="w-full min-h-screen pt-32 md:pt-40 px-6 md:px-8 relative z-10 pb-24 text-void">
+      <header className="max-w-[1400px] mx-auto mb-16 md:mb-32">
         <motion.span 
           variants={revealVariants}
           initial="hidden"
@@ -68,7 +68,7 @@ export const Work: React.FC = () => {
           initial="hidden"
           animate="visible"
           transition={{ delay: 0.1 }}
-          className="text-[10vw] md:text-[7vw] font-bold tracking-tighter leading-[0.9] uppercase"
+          className="text-[14vw] sm:text-[12vw] md:text-[7vw] font-bold tracking-tighter leading-[0.9] uppercase"
         >
           Proof of<br />gravity.
         </motion.h1>
@@ -77,13 +77,13 @@ export const Work: React.FC = () => {
           initial="hidden"
           animate="visible"
           transition={{ delay: 0.2 }}
-          className="text-xl md:text-2xl text-void/50 mt-8 max-w-2xl leading-relaxed font-medium"
+          className="text-lg md:text-2xl text-void/50 mt-6 md:mt-8 max-w-2xl leading-relaxed font-medium"
         >
           A look at what happens when strategy meets execution.
         </motion.p>
       </header>
 
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {projects.map((project, index) => (
           <motion.div
             key={project.title}
@@ -110,17 +110,17 @@ export const Work: React.FC = () => {
             <motion.img 
               src={project.image}
               alt={project.title}
-              className="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 group-hover:grayscale-0 transition-all duration-1000 ease-out"
+              className="absolute inset-0 w-full h-full object-cover grayscale opacity-60 md:group-hover:scale-110 md:group-hover:grayscale-0 transition-all duration-1000 ease-out"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
-            <div className="absolute inset-0 p-8 flex flex-col justify-end transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end md:transform md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-500">
               <span className="text-[10px] font-mono text-white/40 mb-2 tracking-[0.3em] block uppercase font-bold">{project.category}</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tighter mb-2">{project.title}</h2>
-              <p className="text-white/60 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 font-medium uppercase mb-6">
+              <h2 className="text-2xl md:text-4xl font-bold text-white tracking-tighter mb-2">{project.title}</h2>
+              <p className="text-white/60 text-xs md:text-sm leading-relaxed md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 font-medium uppercase mb-4 md:mb-6">
                 {project.result}
               </p>
-              <div className="flex items-center gap-2 text-white text-xs font-bold tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                View Project <ArrowUpRight className="w-4 h-4" />
+              <div className="flex items-center gap-2 text-white text-[10px] md:text-xs font-bold tracking-widest uppercase md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
+                View Project <ArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
               </div>
             </div>
           </motion.div>
@@ -140,42 +140,42 @@ export const Work: React.FC = () => {
               initial={{ scale: 0.9, y: 40 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 40 }}
-              className="bg-white w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-[2rem] shadow-2xl relative scrollbar-hide"
+              className="bg-white w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-[1.5rem] md:rounded-[2rem] shadow-2xl relative scrollbar-hide"
             >
               <button 
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-8 right-8 p-4 bg-void/5 rounded-full hover:bg-void hover:text-white transition-all z-10"
+                className="absolute top-4 right-4 md:top-8 md:right-8 p-3 md:p-4 bg-void/5 rounded-full hover:bg-void hover:text-white transition-all z-10"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5 md:w-6 md:h-6" />
               </button>
 
               <div className="grid grid-cols-1 md:grid-cols-2">
-                <div className="aspect-square md:aspect-auto h-full">
+                <div className="aspect-[4/3] md:aspect-auto h-full">
                   <img src={selectedProject.image} className="w-full h-full object-cover grayscale" alt={selectedProject.title} />
                 </div>
-                <div className="p-12 md:p-16 space-y-12">
+                <div className="p-8 md:p-16 space-y-8 md:space-y-12">
                   <div>
-                    <span className="text-luxury block mb-4">{selectedProject.category}</span>
-                    <h2 className="text-5xl font-bold tracking-tighter uppercase">{selectedProject.title}</h2>
+                    <span className="text-luxury block mb-3 md:mb-4">{selectedProject.category}</span>
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tighter uppercase">{selectedProject.title}</h2>
                   </div>
 
-                  <div className="space-y-8">
+                  <div className="space-y-6 md:space-y-8">
                     <div>
                       <h4 className="text-[10px] font-bold tracking-[0.3em] uppercase opacity-30 mb-2">Challenge</h4>
-                      <p className="text-lg leading-relaxed text-void/80">{selectedProject.challenge}</p>
+                      <p className="text-base md:text-lg leading-relaxed text-void/80">{selectedProject.challenge}</p>
                     </div>
                     <div>
                       <h4 className="text-[10px] font-bold tracking-[0.3em] uppercase opacity-30 mb-2">Solution</h4>
-                      <p className="text-lg leading-relaxed text-void/80">{selectedProject.solution}</p>
+                      <p className="text-base md:text-lg leading-relaxed text-void/80">{selectedProject.solution}</p>
                     </div>
                     <div>
                       <h4 className="text-[10px] font-bold tracking-[0.3em] uppercase opacity-30 mb-2">Outcome</h4>
-                      <p className="text-lg font-bold leading-relaxed text-void">{selectedProject.outcome}</p>
+                      <p className="text-base md:text-lg font-bold leading-relaxed text-void">{selectedProject.outcome}</p>
                     </div>
                   </div>
 
-                  <div className="pt-8 border-t border-void/5">
-                    <p className="text-sm font-bold tracking-widest text-void italic uppercase opacity-60">
+                  <div className="pt-6 md:pt-8 border-t border-void/5">
+                    <p className="text-[10px] md:text-sm font-bold tracking-widest text-void italic uppercase opacity-60">
                       Result: {selectedProject.result}
                     </p>
                   </div>

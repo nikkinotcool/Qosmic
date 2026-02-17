@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useSpring, useMotionValue } from 'framer-motion';
 import { useCursor } from '../context/CursorContext';
 
 export const Cursor: React.FC = () => {
   const { hoverState } = useCursor();
+  const [isMobile, setIsMobile] = useState(false);
   
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -13,15 +14,29 @@ export const Cursor: React.FC = () => {
   const y = useSpring(mouseY, springConfig);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(!window.matchMedia('(pointer: fine)').matches);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      mouseX.set(clientX);
-      mouseY.set(clientY);
+      if (!isMobile) {
+        const { clientX, clientY } = e;
+        mouseX.set(clientX);
+        mouseY.set(clientY);
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [mouseX, mouseY]);
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [mouseX, mouseY, isMobile]);
+
+  if (isMobile) return null;
 
   return (
     <motion.div 
