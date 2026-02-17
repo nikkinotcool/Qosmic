@@ -1,7 +1,6 @@
 import React, { type ReactNode } from 'react';
 import { LavaBackground } from './LavaBackground';
 import { Footer } from './Footer';
-import { Logo } from './Logo';
 
 interface LayoutProps {
   children: ReactNode;
