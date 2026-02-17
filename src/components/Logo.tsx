@@ -6,11 +6,13 @@ import { useCursor } from '../context/CursorContext';
 interface LogoProps {
   className?: string;
   spanClassName?: string;
+  textColor?: string;
 }
 
 export const Logo: React.FC<LogoProps> = ({ 
   className = "", 
-  spanClassName = "font-bold tracking-[0.3em]"
+  spanClassName = "font-bold tracking-[0.3em]",
+  textColor = "text-void"
 }) => {
   const { setHoverState } = useCursor();
   const [isHovered, setIsHovered] = useState(false);
@@ -50,14 +52,14 @@ export const Logo: React.FC<LogoProps> = ({
       className={`relative inline-block ${className}`}
     >
       <div ref={containerRef} className="relative py-1 cursor-pointer overflow-visible">
-        {/* Layer 1: Base Visibility Layer - Hard Black */}
+        {/* Layer 1: Base Visibility Layer */}
         <span 
-          className={`block uppercase text-void ${spanClassName}`}
+          className={`block uppercase ${textColor} ${spanClassName}`}
         >
           QOSMIC
         </span>
 
-        {/* Layer 2: Hover Layer - Transitions to White/Void based on showInverted */}
+        {/* Layer 2: Hover Layer */}
         <motion.div
           className="absolute inset-0 py-1 overflow-hidden pointer-events-none select-none"
           initial={false}
@@ -72,7 +74,7 @@ export const Logo: React.FC<LogoProps> = ({
           }}
         >
           <span 
-            className={`block uppercase text-white bg-void ${spanClassName}`}
+            className={`block uppercase ${textColor === 'text-white' ? 'text-void bg-white' : 'text-white bg-void'} ${spanClassName}`}
           >
             QOSMIC
           </span>

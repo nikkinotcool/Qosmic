@@ -54,6 +54,7 @@ export const Footer: React.FC = () => {
               <Logo 
                 className="text-3xl md:text-4xl" 
                 spanClassName="font-black tracking-widest" 
+                textColor="text-white"
               />
               <div className="text-white/40 text-[10px] md:text-sm leading-relaxed font-medium uppercase tracking-tight">
                 Digital Gravity Agency<br />
