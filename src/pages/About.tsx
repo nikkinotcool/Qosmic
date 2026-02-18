@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useSpring, useTransform, useMotionValue, useInView, type Variants, AnimatePresence } from 'framer-motion';
-import { Sparkles, Layers, Radar, Check, X } from 'lucide-react';
+import { motion, useScroll, useSpring, useTransform, useMotionValue, useInView, type Variants } from 'framer-motion';
+import { Check, X } from 'lucide-react';
 
 const revealVariants: Variants = {
   hidden: { opacity: 0, y: 30, filter: 'blur(8px)' },
@@ -194,7 +194,7 @@ export const About: React.FC = () => {
 
       {/* Team Section - Transparent */}
       <section className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 px-4 mb-24 md:mb-32">
-        {team.map((member, idx) => (
+        {team.map((member, _idx) => (
           <motion.div 
             key={member.name}
             variants={revealVariants}
@@ -374,10 +374,9 @@ export const About: React.FC = () => {
             <div className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-[2px] bg-black/5" />
             <motion.div className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-[2px] bg-black origin-top z-10" style={{ scaleY }} />
             <div className="space-y-24 md:space-y-40 relative">
-              {timeline.map((item, idx) => (
-                <TimelineItem key={item.year} item={item} index={idx} />
-              ))}
-            </div>
+                          {timeline.map((item, _idx) => (
+                            <TimelineItem key={item.year} item={item} index={_idx} />
+                          ))}            </div>
           </div>
         </section>
 
