@@ -6,6 +6,7 @@ import { Layout } from './components/Layout';
 import { Navigation } from './components/Navigation';
 import { Cursor } from './components/Cursor';
 import { LoadingScreen } from './components/LoadingScreen';
+import { ScrollToTop } from './components/ScrollToTop';
 import { CursorProvider } from './context/CursorContext';
 
 // Pages
@@ -18,13 +19,9 @@ import { Contact } from './pages/Contact';
 const AppContent: React.FC = () => {
   const location = useLocation();
 
-  // Scroll to top instantly when route changes
-  React.useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
-
   return (
     <>
+      <ScrollToTop />
       <Layout>
         <Navigation />
         <main>

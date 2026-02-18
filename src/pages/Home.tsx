@@ -212,7 +212,7 @@ export const Home: React.FC = () => {
               }
             ].map((item, i) => (
               <Reveal key={item.title} delay={i * 0.1}>
-                <div className="group p-8 md:p-12 h-full rounded-[2.5rem] border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] md:hover:-translate-y-[6px] transition-all duration-[400ms] cursor-default shadow-[0_10px_30px_-15px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_20px_rgba(255,255,255,0.02)]">
+                <div className="group p-8 md:p-12 h-full rounded-[2.5rem] bg-white/[0.02] hover:bg-white/[0.04] cursor-default card-premium-dark">
                   <div className="flex flex-col h-full text-white">
                     <item.icon className="w-8 h-8 md:w-10 md:h-10 mb-8 md:mb-12 opacity-40 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" strokeWidth={1} />
                     <div className="space-y-6">
@@ -247,7 +247,7 @@ export const Home: React.FC = () => {
                   <span className="absolute -top-8 md:-top-12 -right-4 text-[6rem] md:text-[10rem] font-black opacity-[0.03] pointer-events-none transition-opacity group-hover:opacity-[0.05]">
                     {step.id}
                   </span>
-                  <div className="p-4 bg-void/5 rounded-2xl w-fit mb-8 group-hover:bg-void group-hover:text-white transition-colors duration-500">
+                  <div className="p-4 bg-void/5 rounded-2xl w-fit mb-8 group-hover:bg-void group-hover:text-white group-hover:rotate-[360deg] transition-all duration-700 ease-in-out">
                     <step.icon className="w-6 h-6" strokeWidth={1.5} />
                   </div>
                   <h4 className="text-2xl md:text-3xl font-bold mb-4 uppercase tracking-tighter text-void">{step.title}</h4>
